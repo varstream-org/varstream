@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete download and installation guide for VarStream on Windows, macOS, Linux, and Android. Step-by-step instructions for running the VarStream language without Python.">
+    <meta name="keywords" content="VarStream download, VarStream installation, VarStream exe, VarStream appimage, VarStream setup">
+    <meta name="author" content="VarStream">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/install.html">
+    <meta property="og:title" content="Download & Installation Guide - VarStream">
+    <meta property="og:description" content="Download VarStream and learn how to run the standalone executable on Windows, macOS, Linux, and Android (where supported).">
+    <meta property="og:image" content="https://example.com/assets/images/install-hero.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://example.com/install.html">
+    <meta property="twitter:title" content="Download & Installation Guide - VarStream">
+    <meta property="twitter:description" content="Step-by-step instructions for downloading and running the VarStream standalone executable. No Python required for users.">
+    <meta property="twitter:image" content="https://example.com/assets/images/install-hero.png">
+
+    <title>Download & Installation Guide - VarStream</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/manifest.json">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Download and Run VarStream",
+      "description": "Step-by-step download and installation guide for VarStream on Windows, macOS, Linux, and Android.",
+      "image": "https://example.com/assets/images/installation-screenshot.png",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "VarStream Standalone Binary"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Download VarStream",
+          "text": "Download the VarStream executable or package for your operating system from the download page."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Make it runnable",
+          "text": "On desktop platforms, ensure the VarStream file is executable (on Windows just double-click, on Linux/macOS set execute permission if needed)."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Run VarStream",
+          "text": "Launch VarStream and run your .vat scripts using the command line. No Python installation is required for end users."
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="assets/images/logo.png" alt="VarStream Logo">
+                <span>VarStream</span>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="features.html" class="nav__link">Features</a></li>
+                <li><a href="download.html" class="nav__link">Download</a></li>
+                <li><a href="install.html" class="nav__link active">Install</a></li>
+                <li><a href="userguide.html" class="nav__link">User Guide</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+
+            <a href="download.html" class="nav__cta">Download VarStream</a>
+
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="nav__overlay" id="navOverlay"></div>
+    </header>
+
+    <!-- Installation Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="text-center">
+                <h1>Download & Installation Guide</h1>
+                <p class="hero__subtitle" style="color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto var(--space-8);">
+                    Learn how to download and run VarStream on your device. VarStream ships as a standalone executable — no Python or extra runtime required for end users.
+                </p>
+                <a href="/download.html" class="btn btn--secondary btn--large">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Go to Download Page
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Tabs -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Choose Your Platform</h2>
+                <p class="section__subtitle">Select your operating system to see how to download and run VarStream</p>
+            </div>
+
+            <div class="tabs">
+                <div class="tabs__nav">
+                    <button class="tabs__button active" onclick="switchTab('windows')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                        </svg>
+                        Windows
+                    </button>
+                    <button class="tabs__button" onclick="switchTab('macos')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        macOS
+                    </button>
+                    <button class="tabs__button" onclick="switchTab('linux')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-4.627 4.114-4.466 6.75.098 1.378.16 3.207-1.482 3.916-1.297.559-2.568.226-3.8-.14C1.553 10.119.817 10 0 10v14h8.459c2.929 0 5.314-2.384 5.314-5.312 0-1.328-.487-2.542-1.294-3.472.61-.986.97-2.141.97-3.379 0-1.163-.317-2.251-.87-3.183.383-.935.6-1.962 .6-3.041C13.179 2.493 10.867 0 8.048 0h-.544zm-1.838 3.81c.17 0 .34.07.469.199.26.259.26.68 0 .939-.13.129-.3.199-.469.199s-.34-.07-.469-.199a.666.666 0 0 1 0-.939c.13-.13.3-.199.469-.199zm1.75 2.562c.171 0 .342.071.472.201.26.26.26.681 0 .94a.667.667 0 0 1-.94 0 .666.666 0 0 1 0-.94c.13-.13.3-.201.469-.201z"/>
+                        </svg>
+                        Linux
+                    </button>
+                    <!-- <button class="tabs__button" onclick="switchTab('android')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-1.59-.69-3.38-1.08-5.27-1.08-1.89 0-3.68.39-5.27 1.08L2.65 5.67c-.19-.28-.54-.38-.83-.22-.3.16-.42.54-.26.85L3.4 9.48C1.28 11.35 0 14.03 0 17v2h24v-2c0-2.97-1.28-5.65-3.4-7.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/>
+                        </svg>
+                        Android
+                    </button> -->
+                </div>
+
+                <!-- Windows Installation -->
+                <div id="windows" class="tabs__content active">
+                    <div class="installation-guide">
+                        <h3>Windows: Download & Run VarStream</h3>
+
+                        <div class="alert alert--info">
+                            <strong>System Requirements:</strong> Windows 10 or later (64-bit), 4GB RAM, ~50MB disk space. <br>
+                            <strong>No Python needed:</strong> VarStream is a standalone <code>.exe</code> compiled with Nuitka.
+                        </div>
+
+                        <div class="installation-steps">
+                            <div class="step">
+                                <div class="step__number">1</div>
+                                <div class="step__content">
+                                    <h4>Download VarStream EXE</h4>
+                                    <p>Download <code>VarStream-v1.0.0-windows-x64.exe</code> from the <a href="download.html">VarStream download page</a>.</p>
+                                    <div class="screenshot-placeholder">
+                                        <img src="assets/images/screenshots/windows-download.png" alt="Windows download page for VarStream">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">2</div>
+                                <div class="step__content">
+                                    <h4>Verify SHA256 Checksum (Optional)</h4>
+                                    <p>Open PowerShell and run the following command to verify your download:</p>
+                                    <pre><code>Get-FileHash -Algorithm SHA256 -Path "C:\Downloads\VarStream-v1.0.0-windows-x64.exe"</code></pre>
+                                    <p>Compare the output with the checksum listed on the download page.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">3</div>
+                                <div class="step__content">
+                                    <h4>Run VarStream</h4>
+                                    <p>VarStream for Windows is a command-line tool. You can:</p>
+                                    <ul>
+                                        <li>Double-click <code>VarStream-v1.0.0-windows-x64.exe</code> to see the help message, or</li>
+                                        <li>Open <strong>Command Prompt / PowerShell</strong> and run:</li>
+                                    </ul>
+                                    <pre><code>cd C:\path\to\VarStream
+.\VarStream-v1.0.0-windows-x64.exe myscript.vat</code></pre>
+                                    <p>This will execute the <code>myscript.vat</code> VarStream file.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">4</div>
+                                <div class="step__content">
+                                    <h4>(Optional) Add VarStream to PATH</h4>
+                                    <ol>
+                                        <li>Move <code>VarStream-v1.0.0-windows-x64.exe</code> to a permanent folder, e.g. <code>C:\VarStream</code></li>
+                                        <li>Add <code>C:\VarStream</code> to your system PATH</li>
+                                        <li>Now you can run <code>VarStream-v1.0.0-windows-x64.exe</code> from any folder</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">5</div>
+                                <div class="step__content">
+                                    <h4>Test with a Sample Script</h4>
+                                    <p>Create a file <code>test.vat</code>:</p>
+                                    <pre><code>Let name be "VarStream"
+show name</code></pre>
+                                    <p>Run:</p>
+                                    <pre><code>VarStream-v1.0.0-windows-x64.exe test.vat</code></pre>
+                                    <p>You should see <code>VarStream</code> printed in the console.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="troubleshooting">
+                            <h4>Troubleshooting (Windows)</h4>
+                            <div class="accordion">
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>Windows SmartScreen blocks the VarStream executable</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>For new tools, Windows SmartScreen may show a warning. Click <strong>"More info"</strong> and then <strong>"Run anyway"</strong> to allow VarStream to run.</p>
+                                            <img src="assets/images/screenshots/smartscreen-warning.png" alt="SmartScreen warning">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>"Windows protected your PC" message appears</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>This is normal for unsigned executables. Click <strong>"More info"</strong> and then <strong>"Run anyway"</strong>. Make sure you downloaded VarStream from the official download page.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>Permission issues when running VarStream</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>If you see permission errors, try:</p>
+                                            <ul>
+                                                <li>Right-click the EXE and select <strong>"Run as administrator"</strong></li>
+                                                <li>Move VarStream to a folder where you have full access (e.g. <code>C:\Users\YourName\Tools</code>)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uninstall">
+                            <h4>Uninstallation (Windows)</h4>
+                            <p>VarStream is portable. To "uninstall":</p>
+                            <ol>
+                                <li>Close all terminals using VarStream</li>
+                                <li>Delete <code>VarStream-v1.0.0-windows-x64.exe</code></li>
+                                <li>Remove any PATH entries you created manually (if applicable)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- macOS Installation -->
+                <div id="macos" class="tabs__content">
+                    <div class="installation-guide">
+                        <h3>macOS: Download & Run VarStream</h3>
+
+                        <div class="alert alert--info">
+                            <strong>System Requirements:</strong> macOS 10.14 (Mojave) or later, 4GB RAM, ~50MB disk space. <br>
+                            VarStream is distributed as a standalone binary or app bundle (no system-wide Python required for users).
+                        </div>
+
+                        <div class="installation-steps">
+                            <div class="step">
+                                <div class="step__number">1</div>
+                                <div class="step__content">
+                                    <h4>Download VarStream for macOS</h4>
+                                    <p>Download <code>VarStream-v1.0.0-macos.dmg</code> (or <code>.zip</code> / <code>.tar.gz</code> variant) from the <a href="download.html">download page</a>.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">2</div>
+                                <div class="step__content">
+                                    <h4>Verify SHA256 Checksum (Optional)</h4>
+                                    <p>Open Terminal and run:</p>
+                                    <pre><code>shasum -a 256 ~/Downloads/VarStream-v1.0.0-macos.dmg</code></pre>
+                                    <p>Compare with the checksum shown on the download page.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">3</div>
+                                <div class="step__content">
+                                    <h4>Install / Extract VarStream</h4>
+                                    <p>If using DMG:</p>
+                                    <ul>
+                                        <li>Double-click the <code>.dmg</code> file to mount it</li>
+                                        <li>Drag the <strong>VarStream</strong> app or binary into your <strong>Applications</strong> folder</li>
+                                    </ul>
+                                    <p>If using a ZIP/TAR:</p>
+                                    <ul>
+                                        <li>Extract the archive</li>
+                                        <li>Move the <code>VarStream</code> binary to a folder like <code>/Applications/VarStream</code> or <code>~/Tools</code></li>
+                                    </ul>
+                                    <div class="screenshot-placeholder">
+                                        <img src="assets/images/screenshots/macos-dmg.png" alt="macOS DMG window for VarStream">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">4</div>
+                                <div class="step__content">
+                                    <h4>Run VarStream from Terminal</h4>
+                                    <p>Open <strong>Terminal</strong> and run:</p>
+                                    <pre><code>cd /path/to/VarStream
+./VarStream-macos myscript.vat</code></pre>
+                                    <p>Replace <code>VarStream-macos</code> with the actual binary or app runner name used in your build.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">5</div>
+                                <div class="step__content">
+                                    <h4>First Launch Permissions</h4>
+                                    <p>On the first run, Gatekeeper may ask for confirmation because VarStream is not from the App Store. Click <strong>"Open"</strong> to continue.</p>
+                                    <div class="screenshot-placeholder">
+                                        <img src="assets/images/screenshots/macos-gatekeeper.png" alt="Gatekeeper prompt for VarStream">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="troubleshooting">
+                            <h4>Troubleshooting (macOS)</h4>
+                            <div class="accordion">
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>"VarStream can't be opened because Apple cannot check it for malicious software"</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>Right-click the VarStream app or binary and choose <strong>"Open"</strong>, then click <strong>"Open"</strong> again in the dialog.</p>
+                                            <p>You can also go to <strong>System Settings → Privacy & Security</strong> and click <strong>"Open Anyway"</strong> near the VarStream message.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>"Application is damaged and can't be opened" message</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>This is usually a corrupted download or extended attributes issue. Re-download VarStream, then run:</p>
+                                            <pre><code>xattr -cr "/Applications/VarStream.app"</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>Permission denied when running VarStream binary</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>Make it executable:</p>
+                                            <pre><code>chmod +x /path/to/VarStream</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uninstall">
+                            <h4>Uninstallation (macOS)</h4>
+                            <p>To remove VarStream:</p>
+                            <ol>
+                                <li>Quit all Terminal sessions using VarStream</li>
+                                <li>Delete the <strong>VarStream</strong> app/binary from <code>/Applications</code> (or your custom folder)</li>
+                                <li>Optionally remove any VarStream-related config or scripts from your home directory</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linux Installation -->
+                <div id="linux" class="tabs__content">
+                    <div class="installation-guide">
+                        <h3>Linux: Download & Run VarStream</h3>
+
+                        <div class="alert alert--info">
+                            <strong>System Requirements:</strong> Linux distribution with glibc 2.17+, 4GB RAM, ~50MB disk space. <br>
+                            Recommended: 64-bit modern distro (Ubuntu, Debian, Fedora, etc.). VarStream is provided as AppImage / .deb / .rpm / tarball.
+                        </div>
+
+                        <div class="installation-methods">
+                            <div class="method-tabs">
+                                <button class="method-tab active" onclick="switchMethod('appimage')">AppImage (Recommended)</button>
+                                <button class="method-tab" onclick="switchMethod('deb')">.deb (Debian/Ubuntu)</button>
+                                <button class="method-tab" onclick="switchMethod('rpm')">.rpm (Fedora/RHEL)</button>
+                                <button class="method-tab" onclick="switchMethod('tar')">.tar.gz (Generic)</button>
+                            </div>
+
+                            <!-- AppImage Method -->
+                            <div id="appimage" class="method-content active">
+                                <h4>AppImage (Portable VarStream)</h4>
+
+                                <div class="installation-steps">
+                                    <div class="step">
+                                        <div class="step__number">1</div>
+                                        <div class="step__content">
+                                            <h4>Download AppImage</h4>
+                                            <p>Download <code>VarStream-v1.0.0-x86_64.AppImage</code> from the <a href="download.html">download page</a>.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">2</div>
+                                        <div class="step__content">
+                                            <h4>Make AppImage Executable</h4>
+                                            <p>Open a terminal and run:</p>
+                                            <pre><code>chmod +x ~/Downloads/VarStream-v1.0.0-x86_64.AppImage</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">3</div>
+                                        <div class="step__content">
+                                            <h4>Run VarStream</h4>
+                                            <p>Execute the AppImage and pass a <code>.vat</code> script:</p>
+                                            <pre><code>cd ~/Downloads
+./VarStream-v1.0.0-x86_64.AppImage myscript.vat</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">4</div>
+                                        <div class="step__content">
+                                            <h4>(Optional) Install System-Wide</h4>
+                                            <p>Move the AppImage and create a symlink:</p>
+                                            <pre><code>sudo mv ~/Downloads/VarStream-v1.0.0-x86_64.AppImage /opt/varstream.AppImage
+sudo ln -s /opt/varstream.AppImage /usr/local/bin/varstream</code></pre>
+                                            <p>Now you can run:</p>
+                                            <pre><code>varstream myscript.vat</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- .deb Method -->
+                            <div id="deb" class="method-content">
+                                <h4>.deb Package (Debian/Ubuntu)</h4>
+
+                                <div class="installation-steps">
+                                    <div class="step">
+                                        <div class="step__number">1</div>
+                                        <div class="step__content">
+                                            <h4>Download .deb Package</h4>
+                                            <p>Download <code>varstream_1.0.0_amd64.deb</code> from the <a href="download.html">download page</a>.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">2</div>
+                                        <div class="step__content">
+                                            <h4>Install VarStream</h4>
+                                            <pre><code>cd ~/Downloads
+sudo dpkg -i varstream_1.0.0_amd64.deb</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">3</div>
+                                        <div class="step__content">
+                                            <h4>Fix Dependencies (If Needed)</h4>
+                                            <pre><code>sudo apt-get install -f</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- .rpm Method -->
+                            <div id="rpm" class="method-content">
+                                <h4>.rpm Package (Fedora/RHEL)</h4>
+
+                                <div class="installation-steps">
+                                    <div class="step">
+                                        <div class="step__number">1</div>
+                                        <div class="step__content">
+                                            <h4>Download .rpm Package</h4>
+                                            <p>Download <code>varstream-1.0.0.x86_64.rpm</code> from the <a href="download.html">download page</a>.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">2</div>
+                                        <div class="step__content">
+                                            <h4>Install VarStream</h4>
+                                            <pre><code>cd ~/Downloads
+sudo rpm -i varstream-1.0.0.x86_64.rpm</code></pre>
+                                            <p>On Fedora you may use:</p>
+                                            <pre><code>sudo dnf install varstream-1.0.0.x86_64.rpm</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- .tar.gz Method -->
+                            <div id="tar" class="method-content">
+                                <h4>Tarball (Generic Linux)</h4>
+
+                                <div class="installation-steps">
+                                    <div class="step">
+                                        <div class="step__number">1</div>
+                                        <div class="step__content">
+                                            <h4>Download Tarball</h4>
+                                            <p>Download <code>VarStream-v1.0.0-linux-x64.tar.gz</code> from the <a href="download.html">download page</a>.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">2</div>
+                                        <div class="step__content">
+                                            <h4>Extract the Archive</h4>
+                                            <pre><code>cd ~/Downloads
+tar -xzf VarStream-v1.0.0-linux-x64.tar.gz</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">3</div>
+                                        <div class="step__content">
+                                            <h4>Move VarStream to /opt</h4>
+                                            <pre><code>sudo mv VarStream-v1.0.0-linux-x64 /opt/varstream</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step__number">4</div>
+                                        <div class="step__content">
+                                            <h4>Create a Symlink</h4>
+                                            <pre><code>sudo ln -s /opt/varstream/varstream /usr/local/bin/varstream</code></pre>
+                                            <p>Now run:</p>
+                                            <pre><code>varstream myscript.vat</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="troubleshooting">
+                            <h4>Common Linux Issues</h4>
+                            <div class="accordion">
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>Permission denied when running VarStream</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>Make sure VarStream is executable:</p>
+                                            <pre><code>chmod +x varstream</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>Missing libraries or dependencies</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>On Debian/Ubuntu, install common GUI/runtime libraries if needed:</p>
+                                            <pre><code>sudo apt-get update
+sudo apt-get install libgtk-3-0 libnotify4 libnss3 libxss1 libxtst6 \
+libatspi2.0-0 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
+libxkbcommon0 libasound2</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>VarStream crashes on very old distributions</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>VarStream requires a relatively recent glibc. Try a newer distribution or use the AppImage build if available.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Android Installation -->
+                <!-- <div id="android" class="tabs__content">
+                    <div class="installation-guide">
+                        <h3>Android: VarStream (Experimental / Optional)</h3>
+
+                        <div class="alert alert--info">
+                            <strong>Note:</strong> VarStream is primarily a desktop CLI tool. Android usage is optional and usually done via terminals like Termux or a companion app if provided. <br>
+                            <strong>System Requirements:</strong> Android 5.0+ (for APK / Termux-based usage).
+                        </div>
+
+                        <div class="installation-steps">
+                            <div class="step">
+                                <div class="step__number">1</div>
+                                <div class="step__content">
+                                    <h4>Check Available Options</h4>
+                                    <p>On the <a href="download.html">download page</a>, look for:</p>
+                                    <ul>
+                                        <li><code>VarStream-Android.apk</code> (if a native Android build is provided), or</li>
+                                        <li>Instructions on using VarStream with <strong>Termux</strong> (Linux-like environment on Android).</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">2</div>
+                                <div class="step__content">
+                                    <h4>Install APK (If Available)</h4>
+                                    <p>If a VarStream APK is provided:</p>
+                                    <ul>
+                                        <li>Download <code>VarStream-Android.apk</code> using your phone’s browser</li>
+                                        <li>Allow installation from your browser / file manager when prompted</li>
+                                        <li>Tap <strong>Install</strong> to complete</li>
+                                    </ul>
+                                    <div class="screenshot-placeholder">
+                                        <img src="assets/images/screenshots/android-install.png" alt="Android installation for VarStream">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step__number">3</div>
+                                <div class="step__content">
+                                    <h4>Using VarStream via Termux (Alternative)</h4>
+                                    <p>If there's no direct APK, you can:</p>
+                                    <ol>
+                                        <li>Install <strong>Termux</strong> from a trusted source</li>
+                                        <li>Download a Linux VarStream binary compiled for Android/ARM (if provided)</li>
+                                        <li>Run VarStream just like on Linux using Termux commands</li>
+                                    </ol>
+                                    <p>See the <strong>download page</strong> or <strong>user guide</strong> for exact Termux commands if you decide to support this mode.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="troubleshooting">
+                            <h4>Troubleshooting (Android)</h4>
+                            <div class="accordion">
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>"App not installed" when installing APK</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>Possible reasons:</p>
+                                            <ul>
+                                                <li>Previous VarStream APK is already installed (uninstall first)</li>
+                                                <li>Architecture mismatch (e.g., x86 vs ARM)</li>
+                                                <li>APK was not fully downloaded or is corrupted</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <button class="accordion__button" onclick="toggleAccordion(this)">
+                                        <span>Terminal / Termux shows "permission denied"</span>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <div class="accordion__inner">
+                                            <p>Ensure VarStream binary is executable:</p>
+                                            <pre><code>chmod +x varstream</code></pre>
+                                            <p>Then run it again with:</p>
+                                            <pre><code>./varstream myscript.vat</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uninstall">
+                            <h4>Uninstallation (Android)</h4>
+                            <p>To remove VarStream:</p>
+                            <ol>
+                                <li>If using APK: uninstall like a normal app via <strong>Settings → Apps → VarStream → Uninstall</strong></li>
+                                <li>If using Termux: delete the VarStream binary and any related folders inside Termux’s home directory</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Issues Section -->
+    <section class="section download-section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Common Download & Run Issues</h2>
+                <p class="section__subtitle">Quick fixes for frequently encountered VarStream setup problems</p>
+            </div>
+
+            <div class="common-issues">
+                <div class="issue-card">
+                    <h3>Insufficient Disk Space</h3>
+                    <p>VarStream itself is small, but you need some free space for logs, scripts, and updates.</p>
+                    <div class="solution">
+                        <strong>Solution:</strong> Keep at least 500MB free on the drive where you store VarStream and your <code>.vat</code> scripts.
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <h3>Antivirus Flags the EXE</h3>
+                    <p>Some antivirus tools flag new unsigned executables, even when they are safe.</p>
+                    <div class="solution">
+                        <strong>Solution:</strong> Verify the checksum, then temporarily allow or whitelist <strong>VarStream</strong> in your antivirus settings.
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <h3>Corrupted Download</h3>
+                    <p>Unstable internet can cause incomplete or corrupted downloads, leading to errors when running VarStream.</p>
+                    <div class="solution">
+                        <strong>Solution:</strong> Re-download VarStream over a stable connection and compare the SHA256 checksum with the value from the download page.
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <h3>Command Not Found</h3>
+                    <p>Trying to run <code>varstream</code> from anywhere but the shell can't find it.</p>
+                    <div class="solution">
+                        <strong>Solution:</strong> Either run VarStream from its folder (e.g., <code>./VarStream-v1.0.0-windows-x64.exe</code>) or add it to your system PATH as described in the platform sections above.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Need Help Section -->
+    <section class="section">
+        <div class="container">
+            <div class="cta">
+                <h2 class="cta__title">Need More Help with VarStream?</h2>
+                <p class="cta__description">If you’re stuck downloading or running VarStream, reach out and we’ll help you get your .vat scripts running.</p>
+                <a href="contact.html" class="btn cta__button">Contact Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Product</h4>
+                    <ul class="footer__links">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="download.html">Download</a></li>
+                        <li><a href="install.html">Installation</a></li>
+                        <li><a href="userguide.html">User Guide</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="userguide.html">Documentation</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <ul class="footer__links">
+                        <li><a href="contact.html">Get Support</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>About</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">About VarStream</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2025 VarStream. All rights reserved. | Version [Basic Prototype]</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.tabs__button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tabs__content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Add active class to clicked tab and corresponding content
+            event.target.closest('.tabs__button').classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Method switching for Linux
+        function switchMethod(methodName) {
+            // Remove active class from all method tabs and contents
+            document.querySelectorAll('.method-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.method-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Add active class to clicked method tab and corresponding content
+            event.target.classList.add('active');
+            document.getElementById(methodName).classList.add('active');
+        }
+
+        // Accordion functionality (redefined from download.html)
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const isActive = button.classList.contains('active');
+
+            // Close all accordions in the same section
+            const parentSection = button.closest('.accordion, .troubleshooting');
+            parentSection.querySelectorAll('.accordion__button').forEach(btn => {
+                btn.classList.remove('active');
+                btn.nextElementSibling.classList.remove('active');
+            });
+
+            // Open clicked accordion if it wasn't active
+            if (!isActive) {
+                button.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+
+        // Initialize first Linux method as active
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstMethodTab = document.querySelector('.method-tab');
+            if (firstMethodTab) {
+                firstMethodTab.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

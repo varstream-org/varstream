@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete user guide for VarStream. Getting started, how to write .vat scripts, run them on Windows/macOS/Linux, language basics, workflow, and FAQ.">
+    <meta name="keywords" content="VarStream user guide, VarStream tutorial, VarStream scripting, VarStream .vat, VarStream documentation">
+    <meta name="author" content="VarStream">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/userguide.html">
+    <meta property="og:title" content="User Guide - VarStream">
+    <meta property="og:description" content="Complete user guide for VarStream. Learn how to write, run, and debug VarStream scripts on Windows, macOS, and Linux.">
+    <meta property="og:image" content="https://example.com/assets/images/userguide-hero.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://example.com/userguide.html">
+    <meta property="twitter:title" content="User Guide - VarStream">
+    <meta property="twitter:description" content="Step-by-step VarStream user guide for Windows, macOS, and Linux.">
+    <meta property="twitter:image" content="https://example.com/assets/images/userguide-hero.png">
+
+    <title>User Guide - VarStream</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/manifest.json">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "User Guide - VarStream",
+      "description": "Complete user guide for VarStream with tutorials and documentation",
+      "url": "https://example.com/userguide.html",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "VarStream",
+        "url": "https://example.com"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="assets/images/logo.png" alt="VarStream Logo">
+                <span>VarStream</span>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="features.html" class="nav__link">Features</a></li>
+                <li><a href="download.html" class="nav__link">Download</a></li>
+                <li><a href="install.html" class="nav__link">Install</a></li>
+                <li><a href="userguide.html" class="nav__link active">User Guide</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+
+            <a href="download.html" class="nav__cta">Download VarStream</a>
+
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="nav__overlay" id="navOverlay"></div>
+    </header>
+
+    <!-- User Guide Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="text-center">
+                <h1>VarStream User Guide</h1>
+                <p class="hero__subtitle" style="color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto var(--space-8);">
+                    Learn how to write, run, and debug VarStream scripts (.vat files) on Windows, macOS, and Linux. From quick start to language basics and common errors.
+                </p>
+                <div class="hero__actions">
+                    <a href="#quick-start" class="btn btn--primary btn--large">Get Started</a>
+                    <a href="#faq" class="btn btn--secondary btn--large">FAQ</a>
+                    <a href="user_guid/ug.pdf" class="btn btn--primary btn--large btn--icon">User Guid</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="section">
+        <div class="container">
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <nav class="toc__nav">
+                    <ul class="toc__list">
+                        <li><a href="#quick-start">Quick Start Guide</a></li>
+                        <li><a href="#interface-overview">How VarStream Works</a></li>
+                        <li><a href="#core-workflows">Core Workflows</a></li>
+                        <li><a href="#advanced-features">Language Features</a></li>
+                        <li><a href="#keyboard-shortcuts">CLI Tips</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#faq">Frequently Asked Questions</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Guide -->
+    <section id="quick-start" class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Quick Start Guide</h2>
+                <p class="section__subtitle">From zero to running your first VarStream script</p>
+            </div>
+
+            <div class="quick-start-steps">
+                <div class="step">
+                    <div class="step__number">1</div>
+                    <div class="step__content">
+                        <h4>Download VarStream</h4>
+                        <p>Go to the <a href="download.html">Download</a> page and download the VarStream executable for your platform (Windows, macOS, or Linux). No Python is required for end users.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__number">2</div>
+                    <div class="step__content">
+                        <h4>Open a Terminal / Command Prompt</h4>
+                        <p>VarStream is a command-line tool:</p>
+                        <ul>
+                            <li><strong>Windows:</strong> Command Prompt or PowerShell</li>
+                            <li><strong>macOS:</strong> Terminal</li>
+                            <li><strong>Linux:</strong> Any terminal emulator</li>
+                        </ul>
+                        <p>Navigate to the folder where you placed <code>VarStream</code> (or <code>VarStream.exe</code> / AppImage / binary).</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__number">3</div>
+                    <div class="step__content">
+                        <h4>Create Your First <code>.vat</code> File</h4>
+                        <p>Create a file named <code>hello.vat</code> with the following content:</p>
+                        <pre><code>Let name be "VarStream"
+show name</code></pre>
+                        <p>Save it in the same folder as your VarStream executable, or remember the path.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__number">4</div>
+                    <div class="step__content">
+                        <h4>Run the Script</h4>
+                        <p>In your terminal, run:</p>
+                        <pre><code>./VarStream hello.vat</code></pre>
+                        <p>(On Windows, it might be <code>VarStream.exe hello.vat</code>.) You should see:</p>
+                        <pre><code>VarStream</code></pre>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__number">5</div>
+                    <div class="step__content">
+                        <h4>Explore Basic Syntax</h4>
+                        <p>Try adding more lines to your script:</p>
+                        <pre><code>x = 10
+If x > 5 then show "Big"
+If 2 > 5 then show "Wrong" else show "Good job"</code></pre>
+                        <div class="tip-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2" stroke="white" stroke-width="2" fill="none"></path>
+                            </svg>
+                            <p><strong>Tip:</strong> Keep one instruction per line. VarStream is designed for simple, readable, English-like commands.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interface Overview / How it works -->
+    <section id="interface-overview" class="section download-section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">How VarStream Works</h2>
+                <p class="section__subtitle">Understanding the basic flow: script → VarStream engine → output</p>
+            </div>
+
+            <div class="interface-diagram">
+                <div class="interface-map">
+                    <div class="interface-component" data-component="header">
+                        <div class="component-label">A. Command Line</div>
+                        <p>Your terminal or command prompt where you run <code>VarStream</code> and see the output.</p>
+                    </div>
+
+                    <div class="interface-component" data-component="sidebar">
+                        <div class="component-label">B. Current Directory</div>
+                        <p>The folder that contains your <code>.vat</code> scripts and, optionally, the VarStream executable.</p>
+                    </div>
+
+                    <div class="interface-component" data-component="toolbar">
+                        <div class="component-label">C. Script File</div>
+                        <p>Plain-text file with extension <code>.vat</code> (e.g. <code>hello.vat</code>) containing VarStream instructions.</p>
+                    </div>
+
+                    <div class="interface-component" data-component="workspace">
+                        <div class="component-label">D. VarStream Engine</div>
+                        <p>The VarStream binary parses each line, normalizes natural language, and executes the corresponding action.</p>
+                    </div>
+
+                    <div class="interface-component" data-component="properties">
+                        <div class="component-label">E. Output & Errors</div>
+                        <p>Anything you <code>show</code> and any error messages are printed back to the terminal.</p>
+                    </div>
+
+                    <div class="interface-component" data-component="status">
+                        <div class="component-label">F. Script State</div>
+                        <p>In-memory variables, lists, dictionaries, and function results that exist while the script is running.</p>
+                    </div>
+                </div>
+
+                <div class="interface-screenshot">
+                    <img src="assets/images/screenshots/varstream-cli.png" alt="VarStream command line usage example">
+                </div>
+            </div>
+
+            <div class="component-details">
+                <h3>Typical VarStream Workflow</h3>
+
+                <div class="component-detail">
+                    <h4>1. Write a Script</h4>
+                    <ul>
+                        <li>Use any text editor (VS Code, Notepad, nano, etc.).</li>
+                        <li>Save your file with <code>.vat</code> extension.</li>
+                        <li>Keep syntax simple and English-like.</li>
+                    </ul>
+                </div>
+
+                <div class="component-detail">
+                    <h4>2. Run the Script</h4>
+                    <ul>
+                        <li>Open a terminal in the script folder.</li>
+                        <li>Use <code>VarStream yourscript.vat</code> (or platform-specific executable name).</li>
+                        <li>Check the output and error messages.</li>
+                    </ul>
+                </div>
+
+                <div class="component-detail">
+                    <h4>3. Iterate</h4>
+                    <ul>
+                        <li>Change your script, save, and run again.</li>
+                        <li>Add variables, conditions, lists, dictionaries, and functions step by step.</li>
+                        <li>Use errors as hints to fix syntax or logic.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Workflows -->
+    <section id="core-workflows" class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Core Workflows</h2>
+                <p class="section__subtitle">Common tasks you’ll do with VarStream</p>
+            </div>
+
+            <div class="workflows">
+                <div class="workflow">
+                    <div class="workflow__header">
+                        <h3>Writing and Running a Script</h3>
+                        <p>Create a simple VarStream file and execute it on Windows, macOS, or Linux.</p>
+                    </div>
+
+                    <div class="workflow__steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Create the File</h4>
+                                <ul>
+                                    <li>Create <code>example.vat</code> in your project folder.</li>
+                                    <li>Add basic instructions:</li>
+                                </ul>
+                                <pre><code>x = 9
+y = 8
+Check if x equals y
+If 5 > 2 then show "Correct"</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Run the File</h4>
+                                <ul>
+                                    <li>Open a terminal in the same folder.</li>
+                                    <li>Run (example):</li>
+                                </ul>
+                                <pre><code>./VarStream example.vat</code></pre>
+                                <p>On Windows:</p>
+                                <pre><code>VarStream.exe example.vat</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Interpret the Output</h4>
+                                <p>Check what is printed by <code>show</code> lines. If there is a syntax error, VarStream will stop and tell you which line is problematic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow">
+                    <div class="workflow__header">
+                        <h3>Working with Input and Variables</h3>
+                        <p>Make scripts interactive using built-in input sentences.</p>
+                    </div>
+
+                    <div class="workflow__steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Ask for User Input</h4>
+                                <pre><code>Ask user for their name
+Take input for age
+show name
+show age</code></pre>
+                                <p>This automatically stores values in <code>name</code> and <code>age</code> variables.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Use Math and Conditions</h4>
+                                <pre><code>age = 18
+If age >= 18 then show "Adult" else show "Minor"</code></pre>
+                                <p>Supported operators: <code>+ - * / &gt; &lt; &gt;= &lt;= == !=</code>.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Combine with Lists & Dicts</h4>
+                                <pre><code>Make a list called fruits containing apple, banana, orange
+Add item mango to list fruits
+create dict student : name "Keerthi", age 21
+set_key student age 22
+show fruits
+show student</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow">
+                    <div class="workflow__header">
+                        <h3>Organising Your VarStream Scripts</h3>
+                        <p>Keep your scripts tidy as you build more examples.</p>
+                    </div>
+
+                    <div class="workflow__steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Use a Scripts Folder</h4>
+                                <ul>
+                                    <li>Create a <code>varstream-scripts</code> directory.</li>
+                                    <li>Store each example as its own <code>.vat</code> file.</li>
+                                    <li>Group related scripts into subfolders (e.g. <code>basics/</code>, <code>functions/</code>, <code>lists/</code>).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Use Meaningful Names</h4>
+                                <ul>
+                                    <li><code>input_demo.vat</code></li>
+                                    <li><code>conditions_basic.vat</code></li>
+                                    <li><code>functions_add.vat</code></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Keep Comments in a Separate Doc</h4>
+                                <p>Since VarStream basic version doesn’t support comments yet, keep notes in a separate <code>.txt</code> or markdown file describing what each script does.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Features / Language Features -->
+    <section id="advanced-features" class="section download-section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Language Features</h2>
+                <p class="section__subtitle">Use the full power of basic VarStream syntax</p>
+            </div>
+
+            <div class="advanced-grid">
+                <div class="advanced-feature">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="9" x2="15" y2="9"></line>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3>Functions</h3>
+                    <p>Group reusable logic with simple function definitions.</p>
+                    <ul>
+                        <li><code>Define function add(a,b) as set result to a+b; return result</code></li>
+                        <li>Only one <code>return</code> per function (basic version)</li>
+                        <li>No loops inside functions (in this prototype)</li>
+                        <li>Call with: <code>Call add with 5,3</code></li>
+                    </ul>
+                </div>
+
+                <div class="advanced-feature">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Lists & Dictionaries</h3>
+                    <p>Store multiple values and structured data.</p>
+                    <ul>
+                        <li>Ranges: <code>Create a list of numbers 1 to 5</code></li>
+                        <li>Custom list: <code>Make a list called fruits containing apple, banana, orange</code></li>
+                        <li>Dictionary: <code>create dict student : name "Keerthi", age 21</code></li>
+                        <li>Update key: <code>set_key student age 22</code></li>
+                    </ul>
+                </div>
+
+                <div class="advanced-feature">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"></path>
+                        </svg>
+                    </div>
+                    <h3>Repeat Loops</h3>
+                    <p>Run a simple action multiple times.</p>
+                    <ul>
+                        <li><code>repeat 5 times show "Hello"</code></li>
+                        <li><code>repeat 3 times set x as x+1</code></li>
+                        <li>Loops are single-line in the basic engine</li>
+                        <li>Use them for simple counters and repeated messages</li>
+                    </ul>
+                </div>
+
+                <div class="advanced-feature">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 1z"></path>
+                        </svg>
+                    </div>
+                    <h3>Good Practices</h3>
+                    <p>Keep VarStream scripts clean and understandable.</p>
+                    <ul>
+                        <li>Use clear variable names: <code>age</code>, <code>total</code>, <code>student_name</code></li>
+                        <li>One instruction per line</li>
+                        <li>Group related logic together (inputs → processing → output)</li>
+                        <li>Start with simple scripts and grow slowly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keyboard Shortcuts / CLI Tips -->
+    <section id="keyboard-shortcuts" class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">CLI Tips</h2>
+                <p class="section__subtitle">Helpful terminal habits when using VarStream</p>
+            </div>
+
+            <div class="shortcuts-grid">
+                <div class="shortcuts-category">
+                    <h3>Running VarStream</h3>
+                    <table class="shortcuts-table">
+                        <tbody>
+                            <tr>
+                                <td>Show help</td>
+                                <td><code>VarStream --help</code></td>
+                            </tr>
+                            <tr>
+                                <td>Run a script</td>
+                                <td><code>VarStream script.vat</code></td>
+                            </tr>
+                            <tr>
+                                <td>Run with debug (if enabled)</td>
+                                <td><code>VarStream --debug script.vat</code></td>
+                            </tr>
+                            <tr>
+                                <td>REPL mode (if available)</td>
+                                <td><code>VarStream --repl</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="shortcuts-category">
+                    <h3>Common Terminal Keys</h3>
+                    <table class="shortcuts-table">
+                        <tbody>
+                            <tr>
+                                <td>Interrupt running script</td>
+                                <td><kbd>Ctrl</kbd> + <kbd>C</kbd></td>
+                            </tr>
+                            <tr>
+                                <td>Previous command</td>
+                                <td>Up Arrow</td>
+                            </tr>
+                            <tr>
+                                <td>Next command</td>
+                                <td>Down Arrow</td>
+                            </tr>
+                            <tr>
+                                <td>Clear screen</td>
+                                <td><code>clear</code> (Linux/macOS) / <code>cls</code> (Windows)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="shortcuts-category">
+                    <h3>File Operations (Shell)</h3>
+                    <table class="shortcuts-table">
+                        <tbody>
+                            <tr>
+                                <td>List files</td>
+                                <td><code>ls</code> (Linux/macOS) / <code>dir</code> (Windows)</td>
+                            </tr>
+                            <tr>
+                                <td>Change directory</td>
+                                <td><code>cd foldername</code></td>
+                            </tr>
+                            <tr>
+                                <td>Show current directory</td>
+                                <td><code>pwd</code> (Linux/macOS)</td>
+                            </tr>
+                            <tr>
+                                <td>Run script in current folder</td>
+                                <td><code>./VarStream script.vat</code> or <code>VarStream.exe script.vat</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="shortcuts-category">
+                    <h3>Editing Scripts Faster</h3>
+                    <table class="shortcuts-table">
+                        <tbody>
+                            <tr>
+                                <td>Open file in VS Code</td>
+                                <td><code>code script.vat</code></td>
+                            </tr>
+                            <tr>
+                                <td>Open file in nano (terminal editor)</td>
+                                <td><code>nano script.vat</code></td>
+                            </tr>
+                            <tr>
+                                <td>Duplicate script as backup</td>
+                                <td><code>cp script.vat script_backup.vat</code></td>
+                            </tr>
+                            <tr>
+                                <td>View file quickly</td>
+                                <td><code>cat script.vat</code> (Linux/macOS) / <code>type script.vat</code> (Windows)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="shortcut-tip">
+                <div class="tip-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2" stroke="white" stroke-width="2" fill="none"></path>
+                    </svg>
+                </div>
+                <div class="tip-content">
+                    <h4>Tip</h4>
+                    <p>Create a dedicated <code>varstream</code> folder with all your scripts, and run your terminal from there to keep everything organised.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section id="troubleshooting" class="section download-section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Troubleshooting</h2>
+                <p class="section__subtitle">Common VarStream issues and how to fix them</p>
+            </div>
+
+            <div class="troubleshooting-grid">
+                <div class="trouble-item">
+                    <h3>VarStream Won't Run</h3>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <h4>Check Platform</h4>
+                            <p>Make sure you downloaded the correct build for your OS (Windows/macOS/Linux) from the download page.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Executable Permissions (Linux/macOS)</h4>
+                            <p>Run:</p>
+                            <pre><code>chmod +x VarStream</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Path Issues</h4>
+                            <p>Try running with a relative path from the folder where the file is stored:</p>
+                            <pre><code>./VarStream --help</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trouble-item">
+                    <h3>"Command Not Found"</h3>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <h4>Run from the File’s Folder</h4>
+                            <p>Navigate to the folder containing VarStream:</p>
+                            <pre><code>cd /path/to/VarStream/folder</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Use Relative Path</h4>
+                            <p>On Linux/macOS:</p>
+                            <pre><code>./VarStream script.vat</code></pre>
+                            <p>On Windows (Command Prompt):</p>
+                            <pre><code>VarStream.exe script.vat</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Add to PATH (Optional)</h4>
+                            <p>If you want to run <code>VarStream</code> from anywhere, add its location to your system PATH (see OS-specific docs).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trouble-item">
+                    <h3>Syntax / Parsing Errors</h3>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <h4>Check the Line Number</h4>
+                            <p>The error usually shows which line VarStream couldn’t understand. Inspect that line in your <code>.vat</code> file.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Use Supported Patterns Only</h4>
+                            <p>Keep sentences close to supported forms, e.g.:</p>
+                            <ul>
+                                <li><code>Set x as 10</code></li>
+                                <li><code>If 5 > 2 then show "OK"</code></li>
+                                <li><code>Make a list called fruits containing apple, banana</code></li>
+                            </ul>
+                        </div>
+                        <div class="step">
+                            <h4>One Instruction Per Line</h4>
+                            <p>Avoid mixing multiple unrelated commands in a single line (except simple function definitions in the basic style you’ve defined).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trouble-item">
+                    <h3>Input or Show Not Working as Expected</h3>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <h4>Check Variable Names</h4>
+                            <p>Make sure the variable name you <code>show</code> matches exactly the one you used when taking input.</p>
+                            <pre><code>Ask user for their name
+show name  # not 'Name'</code></pre>
+                        </div>
+                        <div class="step">
+                            <h4>Remember Input is String by Default</h4>
+                            <p>User input is read as text. If you compare with numbers, make sure you handle that in your design (e.g., use numeric defaults where needed).</p>
+                        </div>
+                        <div class="step">
+                            <h4>Run in a Real Terminal</h4>
+                            <p>Some IDE consoles behave differently with input. If something feels off, test in a normal system terminal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Frequently Asked Questions</h2>
+                <p class="section__subtitle">Quick answers about VarStream</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>Do I need Python installed to use VarStream?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p>No. VarStream is compiled (for example using Nuitka) into a standalone binary for each platform. End users only need the VarStream executable for Windows, macOS, or Linux. Python is only required on the developer machine that builds VarStream.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>Which platforms does VarStream support?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p>The VarStream user binaries are intended for desktop platforms:</p>
+                        <ul>
+                            <li>Windows (64-bit)</li>
+                            <li>macOS (modern versions)</li>
+                            <li>Linux (x86_64 distributions with recent glibc)</li>
+                        </ul>
+                        <p>Mobile/Android support is not part of the current basic VarStream design.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>Can VarStream build full applications?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p>The current VarStream engine is a <strong>basic prototype</strong> for learning and experimenting with natural-language style scripting. It supports variables, math, simple conditions, input, lists, dictionaries, functions, and repeat loops. It is <strong>not</strong> meant for large or complex applications yet.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>Is VarStream case-sensitive?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p>Variable names are usually treated as you type them, so keep a consistent style (e.g., always use <code>name</code>, not sometimes <code>Name</code>). Keywords like <code>If</code>, <code>Set</code>, <code>Define function</code> should follow the simple patterns shown in the guide to ensure the normalizer recognises them correctly.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>How do I update VarStream?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p>Updating is simple:</p>
+                        <ol>
+                            <li>Download the new VarStream executable for your platform.</li>
+                            <li>Close any terminal windows currently running VarStream.</li>
+                            <li>Replace the old executable with the new one in your tools folder.</li>
+                            <li>Run <code>VarStream --help</code> to confirm the version.</li>
+                        </ol>
+                        <p>Your <code>.vat</code> scripts do not need to change for minor updates.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span>Can I use VarStream for teaching or demos?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p>Yes. VarStream is ideal for demonstrating basic logic, conditions, and data handling in a friendly, English-like syntax. Its simplicity makes it great for workshops, classroom demos, or quick prototypes where you don’t want heavy language syntax.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Need Help -->
+    <section class="section">
+        <div class="container">
+            <div class="cta">
+                <h2 class="cta__title">Still Need Help?</h2>
+                <p class="cta__description">If you’re stuck with a VarStream script or error message, reach out and we’ll help you sort it out.</p>
+                <div class="cta__actions">
+                    <a href="contact.html" class="btn cta__button">Contact Support</a>
+                    <a href="#" class="btn btn--secondary">Browse Community Forum</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Product</h4>
+                    <ul class="footer__links">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="download.html">Download</a></li>
+                        <li><a href="install.html">Installation</a></li>
+                        <li><a href="userguide.html">User Guide</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="userguide.html">Documentation</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Connect</h4>
+                    <ul class="footer__links">
+                        <li><a href="contact.html">Get Support</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>About</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">About VarStream</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2025 VarStream. All rights reserved. | Version [Basic Prototype]</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // FAQ toggle functionality
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            const isActive = button.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-button').forEach(btn => {
+                btn.classList.remove('active');
+                btn.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+            });
+            document.querySelectorAll('.faq-content').forEach(content => {
+                content.style.maxHeight = '0';
+            });
+
+            // Open clicked FAQ if it wasn't active
+            if (!isActive) {
+                button.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // ignore if href is just "#"
+                if (this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize FAQ items on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close all FAQ content initially
+            document.querySelectorAll('.faq-content').forEach(content => {
+                content.style.maxHeight = '0';
+                content.style.overflow = 'hidden';
+                content.style.transition = 'max-height 0.3s ease';
+            });
+
+            // Rotate FAQ icons initially
+            document.querySelectorAll('.faq-icon').forEach(icon => {
+                icon.style.transition = 'transform 0.3s ease';
+            });
+        });
+    </script>
+</body>
+</html>
